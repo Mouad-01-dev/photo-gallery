@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Photo Gallery</title>
+  <style>
+    #image {
+      width: 500px;
+      height: 300px;
+      border: 2px solid #333;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .preview {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="image">Hover over an image below to display here.</div>
+
+  <img class="preview" alt="Cartoon character saying OK" src="/images/img1.png"
+       onmouseover="upDate(this)" onmouseout="unDo()">
+  <img class="preview" alt="Soccer player in a white jersey" src="/images/img2.jpeg"
+       onmouseover="upDate(this)" onmouseout="unDo()">
+  <img class="preview" alt="Person lifting their glasses" src="/images/img3.jpeg"
+       onmouseover="upDate(this)" onmouseout="unDo()">
+
+  <script>
+    function upDate(previewPic) {
+      console.log("Event triggered");
+      console.log("alt: " + previewPic.alt);
+      console.log("src: " + previewPic.src);
+
+      var display = document.getElementById("image");
+      display.innerHTML = previewPic.alt;
+      display.style.backgroundImage = "url('" + previewPic.src + "')";
+    }
+
+    function unDo() {
+      var display = document.getElementById("image");
+      display.innerHTML = "Hover over an image below to display here.";
+      display.style.backgroundImage = "url('')";
+    }
+  </script>
+</body>
+</html>
