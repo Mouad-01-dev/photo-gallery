@@ -38,15 +38,11 @@
        onmouseover="upDate(this)" onmouseout="unDo()">
 
   <script>
-    function upDate(previewPic) {
-      console.log("Event triggered");
-      console.log("alt: " + previewPic.alt);
-      console.log("src: " + previewPic.src);
-
-      var display = document.getElementById("image");
-      display.innerHTML = previewPic.alt;
-      display.style.backgroundImage = "url('" + previewPic.src + "')";
-    }
+function upDate(previewPic) {
+  var display = document.getElementById("image");
+  display.innerHTML = "";
+  display.style.backgroundImage = "url('" + previewPic.src + "')";
+}
 
     function unDo() {
       var display = document.getElementById("image");
